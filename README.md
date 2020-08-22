@@ -6,6 +6,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Count number of items in directory](#count-number-of-items-in-directory)
 - [Using rsync](#using-rsync)
 - [Monitor GPU usage](#monitor-gpu-usage)
+- [Essential Installs in Ubuntu LTS Minimal](#essential-installs-in-ubuntu-lts-minimal)
 
 ### List directory contents with size
 
@@ -42,4 +43,10 @@ rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_s
 ```bash
 # Check GPU usage and update every 1 s
 watch -n1 | nvidia-smi
+```
+
+### Essential Installs in Ubuntu LTS Minimal
+
+```bash
+sudo apt install fish wget bzip2 curl git gcc g++ python3-dev build-essential
 ```
