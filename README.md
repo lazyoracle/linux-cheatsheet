@@ -85,6 +85,10 @@ docker run -d -p 8080:8080 --rm --tty --name container_name --volume $HOME/data:
 # remove all containers
 docker container rm $(docker container ls -aq)
 
-# remove all dangling images
-docker image prune -a
+# force remove all images older than 12 hours/until 2020-08-04
+docker image prune -a --force --filter "until=12h"
+docker image prune -a --force --filter "until=2020-08-04T00:00:00"
+
+# check docker resource usage
+docker stats
 ```
