@@ -2,27 +2,46 @@
 
 Handy list of oft-used Linux commands that I will never remember. Not intended to be an all-purpose cheatsheet, highly specific to my limited usage. These commands work in `bash`. For `fish`, the variable substitutions and wildcards need to be changed.
 
-- [List directory contents with size](#list-directory-contents-with-size)
-- [Count number of items in directory](#count-number-of-items-in-directory)
-- [Using rsync](#using-rsync)
-- [Monitor GPU usage](#monitor-gpu-usage)
+- [Shell 101](#shell-101)
+  - [List directory contents with size](#list-directory-contents-with-size)
+  - [Count number of items in directory](#count-number-of-items-in-directory)
+  - [Monitor GPU usage](#monitor-gpu-usage)
+  - [SSH 101](#ssh-101)
+- [rsync](#rsync)
 - [Essential Installs in Ubuntu LTS Minimal](#essential-installs-in-ubuntu-lts-minimal)
 - [Session management using screen](#session-management-using-screen)
 - [Docker 101](#docker-101)
+- [Git 101](#git-101)
 
-## List directory contents with size
+## Shell 101
+
+### List directory contents with size
 
 ```bash
 du -sch * .[!.]* | sort -rh
 ```
 
-## Count number of items in directory
+### Count number of items in directory
 
 ```bash
 ls <directory path> -1 | wc -l
 ```
 
-## Using rsync
+### Monitor GPU usage
+
+```bash
+# Check GPU usage and update every 1 s
+watch -n1 nvidia-smi
+```
+
+### SSH 101
+
+```bash
+# connect to hostname with key and port forward
+ssh -L <remote_port>:localhost:<local_port> -i /path/to/key username@hostname
+```
+
+## rsync
 
 ```bash
 # https://www.danielms.site/blog/rsync-cheatsheet/
@@ -37,13 +56,6 @@ rsync -avzPn ~/local/directory username@remote_host:/home/username/destination_d
 
 # using ssh key
 rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/
-```
-
-## Monitor GPU usage
-
-```bash
-# Check GPU usage and update every 1 s
-watch -n1 nvidia-smi
 ```
 
 ## Essential Installs in Ubuntu LTS Minimal
@@ -91,4 +103,47 @@ docker image prune -a --force --filter "until=2020-08-04T00:00:00"
 
 # check docker resource usage
 docker stats
+```
+
+## Git 101
+
+```bash
+# setup local project with remote
+git init
+git add .
+git commit -m "init commit"
+git remote add origin <remote repo url>
+git push --set-upstream origin master
+
+# setup local branch with remote
+git checkout -b cool-feature
+git add .
+git commit -m "branch init commit"
+git push --set-upstream origin cool-feature
+
+# https://www.atlassian.com/git/tutorials/undoing-changes
+# https://stackoverflow.com/a/24569160
+
+# git reset
+# undo 2 commits and unstage files
+git reset HEAD~2 # git reset --mixed HEAD~2
+
+# undo 2 commits and leave changes staged
+git reset --soft HEAD~2
+
+# undo 2 commits and delete all changes
+git reset --hard HEAD~2
+
+# git revert
+#Undo last 2 commits with new commit (without altering history)
+git revert HEAD~2
+
+# git checkout
+# move around to a branch/commit
+git checkout <branch> or git checkout <commit-SHA>
+
+# remove staged file from index
+git rm <file-name>
+
+
 ```
