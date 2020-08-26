@@ -41,7 +41,7 @@ watch -n1 nvidia-smi
 ssh -L <remote_port>:localhost:<local_port> -i /path/to/key username@hostname
 ```
 
-## rsync
+### rsync
 
 ```bash
 # https://www.danielms.site/blog/rsync-cheatsheet/
@@ -56,6 +56,14 @@ rsync -avzPn ~/local/directory username@remote_host:/home/username/destination_d
 
 # using ssh key
 rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/
+```
+### Networking
+
+```bash
+# Get PID of a process running on port YYYY
+sudo netstat -lpn | grep :YYYY
+# OR
+fuser 8080/tcp (add -k to kill the process too)
 ```
 
 ## Essential Installs in Ubuntu LTS Minimal
@@ -144,6 +152,4 @@ git checkout <branch> or git checkout <commit-SHA>
 
 # remove staged file from index
 git rm <file-name>
-
-
 ```
