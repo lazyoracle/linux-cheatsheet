@@ -34,6 +34,22 @@ ls <directory path> -1 | wc -l
 watch -n1 nvidia-smi
 ```
 
+### File permissions
+
+```bash
+# 400 read by owner
+# 040 read by group
+# 004 read by anybody
+# 200 write by owner
+# 020 write by group
+# 002 write by anybody
+# 100 execute by owner
+# 010 execute by group
+# 001 execute by anybody
+
+sudo chmod XXX <filepath>
+```
+
 ### SSH 101
 
 ```bash
