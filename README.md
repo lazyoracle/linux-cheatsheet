@@ -12,7 +12,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [Networking](#networking)
 - [System Setup](#system-setup)
   - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
-  - [Increasing swap memory](increasing-swap)
+  - [Increasing swap memory](#increasing-swap)
 - [Session management using screen](#session-management-using-screen)
 - [Docker 101](#docker-101)
 - [Git 101](#git-101)
