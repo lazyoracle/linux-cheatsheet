@@ -10,7 +10,9 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [SSH 101](#ssh-101)
   - [rsync](#rsync)
   - [Networking](#networking)
-- [Essential Installs in Ubuntu LTS Minimal](#essential-installs-in-ubuntu-lts-minimal)
+- [System Setup](#system-setup)
+  - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
+  - [Increasing swap memory](increasing-swap)
 - [Session management using screen](#session-management-using-screen)
 - [Docker 101](#docker-101)
 - [Git 101](#git-101)
@@ -84,10 +86,26 @@ sudo netstat -lpn | grep :YYYY
 fuser 8080/tcp (add -k to kill the process too)
 ```
 
-## Essential Installs in Ubuntu LTS Minimal
+## System Setup
+### Essential Installs
 
 ```bash
 sudo apt install fish wget bzip2 curl git gcc g++ python3-dev build-essential
+```
+
+### Increasing swap 
+
+```bash
+# create swap file
+sudo fallocate -l 1G /swapfile
+# permissions set to root
+sudo chmod 600 /swapfile
+# setup a linux swap area
+sudo mkswap /swapfile
+# activate swap
+sudo swapon /swapfile
+# verify
+sudo swapon --show
 ```
 
 ## Session management using screen
