@@ -90,7 +90,7 @@ fuser 8080/tcp (add -k to kill the process too)
 ### Essential Installs
 
 ```bash
-sudo apt install fish wget bzip2 curl git gcc g++ python3-dev build-essential
+sudo apt install fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano
 ```
 
 ### Increasing swap 
