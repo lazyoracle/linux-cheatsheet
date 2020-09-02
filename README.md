@@ -165,6 +165,9 @@ git add .
 git commit -m "branch init commit"
 git push --set-upstream origin cool-feature
 
+# change remote for your local repo, useful when synching your fork
+git remote set-url origin <repo url>
+
 # https://www.atlassian.com/git/tutorials/undoing-changes
 # https://stackoverflow.com/a/24569160
 
