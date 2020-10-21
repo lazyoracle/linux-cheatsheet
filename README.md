@@ -10,6 +10,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [SSH 101](#ssh-101)
   - [rsync](#rsync)
   - [Networking](#networking)
+  - [fish](#fish)
 - [System Setup](#system-setup)
   - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
   - [Increasing swap memory](#increasing-swap)
@@ -86,11 +87,20 @@ sudo netstat -lpn | grep :YYYY
 fuser 8080/tcp (add -k to kill the process too)
 ```
 
+### fish
+
+```bash
+# Set password of user account on GCP VM
+sudo passwd $USER
+# set fish as default shell
+chsh -s `which fish`
+```
+
 ## System Setup
 ### Essential Installs
 
 ```bash
-sudo apt install fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano
+sudo apt install -y fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano rsync htop tree screen libatlas-base-dev libboost-all-dev
 ```
 
 ### Increasing swap 
@@ -122,6 +132,21 @@ screen -r
 
 # run command and detach
 screen -d -m <command>
+
+# add session name
+screen -S <session name>
+
+# add name to attached session
+Ctrl + a + : + sessionname name
+
+# attach to named session
+screen -xS name
+
+# detach and attach to session (useful when stuck in ssh)
+screen -d -r
+
+# attach to session without detaching
+screen -x
 ```
 
 ## Docker 101
@@ -191,4 +216,9 @@ git checkout <branch> or git checkout <commit-SHA>
 
 # remove staged file from index
 git rm <file-name>
+
+# revert merge
+git log #check the commit hash and parent id
+# revert working tree to commit-hash on parent branch 1
+git revert <commit-hash> -m 1
 ```
