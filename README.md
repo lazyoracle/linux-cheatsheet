@@ -11,6 +11,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [rsync](#rsync)
   - [Networking](#networking)
   - [fish](#fish)
+  - [wget](#wget)
 - [System Setup](#system-setup)
   - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
   - [Increasing swap memory](#increasing-swap)
@@ -96,11 +97,18 @@ sudo passwd $USER
 chsh -s `which fish`
 ```
 
+### wget
+
+```bash
+# recursive no-parent Reject no-Host robots.txt X_no_of_dirs
+wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
+```
+
 ## System Setup
 ### Essential Installs
 
 ```bash
-sudo apt install -y fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano rsync htop tree screen libatlas-base-dev libboost-all-dev
+sudo apt install -y fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano rsync htop tree screen libatlas-base-dev libboost-all-dev libopenblas-dev
 ```
 
 ### Increasing swap 
