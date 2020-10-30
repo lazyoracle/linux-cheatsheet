@@ -12,6 +12,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [Networking](#networking)
   - [fish](#fish)
   - [wget](#wget)
+  - [grep](#grep)
 - [System Setup](#system-setup)
   - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
   - [Increasing swap memory](#increasing-swap)
@@ -102,6 +103,14 @@ chsh -s `which fish`
 ```bash
 # recursive no-parent Reject no-Host robots.txt X_no_of_dirs
 wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
+```
+
+### grep
+
+```bash
+# https://www.grymoire.com/Unix/Grep.html
+# find pattern in files
+grep --include=\*.{py, c, h} --exclude=\*.o --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
 ```
 
 ## System Setup
