@@ -238,4 +238,17 @@ git rm <file-name>
 git log #check the commit hash and parent id
 # revert working tree to commit-hash on parent branch 1
 git revert <commit-hash> -m 1
+
+# move commits to another existing branch
+git checkout existingbranch
+git merge master
+git checkout master
+git reset --hard HEAD~3 # Go back 3 commits. You *will* lose uncommitted work.
+git checkout existingbranch
+
+# move commits to another new branch
+git branch newbranch      # Create a new branch, saving the desired commits
+git reset --hard HEAD~3   # Move master back by 3 commits or put a commit hash
+git checkout newbranch    # Go to the new branch that still has the desired commits
+
 ```
