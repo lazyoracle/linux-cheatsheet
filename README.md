@@ -176,9 +176,9 @@ docker-compose down
 # build a docker image tagged my_image with context in the current working directory
 docker build --tag my_image:1.0 .
 
-# run a detached container on 8080, remove after shutdown, with pseudo-tty, named container_name
+# run a detached container on 8080, remove after shutdown, with interactive pseudo-tty, named container_name
 # with $HOME/data mounted on $HOME/app/data, shared memory increased to 10GB, from image ubuntu:18.04
-docker run -d -p 8080:8080 --rm --tty --name container_name --volume $HOME/data:$HOME/app/data --shm-size 10G ubuntu:18.04
+docker run -d -p 8080:8080 --rm --tty -i --name container_name --volume $HOME/data:$HOME/app/data --shm-size 10G ubuntu:18.04
 
 # remove all containers
 docker container rm $(docker container ls -aq)
@@ -190,6 +190,7 @@ docker image prune -a --force --filter "until=2020-08-04T00:00:00"
 # check docker resource usage
 docker stats
 ```
+More at: [Docker Official Cheatsheet](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf)
 
 ## Git 101
 
