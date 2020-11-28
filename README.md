@@ -67,7 +67,6 @@ ssh -L <remote_port>:localhost:<local_port> -i /path/to/key username@hostname
 ### rsync
 
 ```bash
-# https://www.danielms.site/blog/rsync-cheatsheet/
 # -avzPn --stats -h --> archive verbose compressed progress-bar dry-run human-readable-stats
 
 # pull files from remote server
@@ -80,6 +79,9 @@ rsync -avzPn ~/local/directory username@remote_host:/home/username/destination_d
 # using ssh key
 rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/
 ```
+
+More details on [rsync cheatsheet](https://www.danielms.site/blog/rsync-cheatsheet/)
+
 ### Networking
 
 ```bash
@@ -108,10 +110,10 @@ wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
 ### grep
 
 ```bash
-# https://www.grymoire.com/Unix/Grep.html
 # find pattern in files
 grep --include=\*.{py, c, h} --exclude=\*.o --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
 ```
+More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
 
 ## System Setup
 ### Essential Installs
@@ -254,5 +256,6 @@ git checkout existingbranch
 git branch newbranch      # Create a new branch, saving the desired commits
 git reset --hard HEAD~3   # Move master back by 3 commits or put a commit hash
 git checkout newbranch    # Go to the new branch that still has the desired commits
-
 ```
+
+[Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
