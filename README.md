@@ -189,8 +189,11 @@ docker image prune -a --force --filter "until=2020-08-04T00:00:00"
 
 # check docker resource usage
 docker stats
+
+# Execute command in a running container in an interactive terminal
+docker exec -it <container name> <command>
 ```
-More at: [Docker Official Cheatsheet](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf)
+More at: [Docker Official Cheatsheet](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet.pdf) and [DevTools](https://phase2.github.io/devtools/)
 
 ## Git 101
 
