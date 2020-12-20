@@ -55,6 +55,10 @@ watch -n1 nvidia-smi
 # 001 execute by anybody
 
 sudo chmod XXX <filepath>
+
+# ssh public key file 644 
+# ssh private key file 600
+# ssh directory 700
 ```
 
 ### SSH 101
