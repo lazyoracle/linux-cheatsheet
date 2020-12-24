@@ -19,6 +19,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Session management using screen](#session-management-using-screen)
 - [Docker 101](#docker-101)
 - [Git 101](#git-101)
+- [make Basics](#make-basics)
 
 ## Shell 101
 
@@ -263,3 +264,16 @@ git checkout newbranch    # Go to the new branch that still has the desired comm
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
+
+## make Basics
+
+Make `target` for dependencies `dep1` and `dep2` using recipe specified by `command`
+```
+target: dep1 dep2
+	command arguments
+
+dep%: subdep1 subdep2
+	command arguments
+```
+* [Metaprogamming - MIT Missing Semester](https://missing.csail.mit.edu/2020/metaprogramming/)
+* [`make` Standard Targets](https://www.gnu.org/software/make/manual/html_node/Standard-Targets.html#Standard-Targets)
