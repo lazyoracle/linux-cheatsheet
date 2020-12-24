@@ -7,12 +7,12 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [Count number of items in directory](#count-number-of-items-in-directory)
   - [Monitor GPU usage](#monitor-gpu-usage)
   - [File Permissions](#file-permissions)
-  - [SSH 101](#ssh-101)
-  - [rsync](#rsync)
-  - [Networking](#networking)
   - [fish](#fish)
   - [wget](#wget)
-  - [grep](#grep)
+- [Networking](#networking)
+  - [Port Monitoring](#port-monitoring)
+  - [SSH 101](#ssh-101)
+  - [rsync](#rsync)
 - [System Setup](#system-setup)
   - [Essential Installs in Ubuntu LTS Minimal](#essential-installs)
   - [Increasing swap memory](#increasing-swap)
@@ -20,6 +20,9 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Docker 101](#docker-101)
 - [Git 101](#git-101)
 - [make Basics](#make-basics)
+- [Data Wrangling](#data-wrangling)
+  - [grep](#grep)
+  - [awk and sed](#awk-and-sed)
 
 ## Shell 101
 
@@ -62,6 +65,36 @@ sudo chmod XXX <filepath>
 # ssh directory 700
 ```
 
+### fish
+
+```bash
+# Set password of user account on GCP VM
+sudo passwd $USER
+# set fish as default shell
+chsh -s `which fish`
+```
+
+### wget
+
+```bash
+# recursive no-parent Reject no-Host robots.txt X_no_of_dirs
+wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
+```
+
+* Nifty recipes for common commands - [tldr.sh](https://tldr.sh/)
+* Some basic shell usage [examples](https://missing.csail.mit.edu/2020/shell-tools/)
+
+## Networking
+
+### Port Monitoring
+
+```bash
+# Get PID of a process running on port YYYY
+sudo netstat -lpn | grep :YYYY
+# OR
+fuser 8080/tcp (add -k to kill the process too)
+```
+
 ### SSH 101
 
 ```bash
@@ -86,39 +119,6 @@ rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_s
 ```
 
 More details on [rsync cheatsheet](https://www.danielms.site/blog/rsync-cheatsheet/)
-
-### Networking
-
-```bash
-# Get PID of a process running on port YYYY
-sudo netstat -lpn | grep :YYYY
-# OR
-fuser 8080/tcp (add -k to kill the process too)
-```
-
-### fish
-
-```bash
-# Set password of user account on GCP VM
-sudo passwd $USER
-# set fish as default shell
-chsh -s `which fish`
-```
-
-### wget
-
-```bash
-# recursive no-parent Reject no-Host robots.txt X_no_of_dirs
-wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
-```
-
-### grep
-
-```bash
-# find pattern in files
-grep --include=\*.{py, c, h} --exclude=\*.o --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
-```
-More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
 
 ## System Setup
 ### Essential Installs
@@ -277,3 +277,17 @@ dep%: subdep1 subdep2
 ```
 * [Metaprogamming - MIT Missing Semester](https://missing.csail.mit.edu/2020/metaprogramming/)
 * [`make` Standard Targets](https://www.gnu.org/software/make/manual/html_node/Standard-Targets.html#Standard-Targets)
+
+## Data Wrangling
+
+### grep
+
+```bash
+# find pattern in files
+grep --include=\*.{py, c, h} --exclude=\*.o --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+```
+More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
+
+### awk and sed
+
+TODO: Refer [here](https://missing.csail.mit.edu/2020/data-wrangling/) now
