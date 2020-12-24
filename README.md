@@ -23,7 +23,8 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Data Wrangling](#data-wrangling)
   - [grep](#grep)
   - [awk and sed](#awk-and-sed)
-
+- [Machine Learning Toolchain](#machine-learning-toolchain)
+  - [Install Tensorflow GPU](#install-tensorflow-gpu)
 ## Shell 101
 
 ### List directory contents with size
@@ -291,3 +292,15 @@ More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
 ### awk and sed
 
 TODO: Refer [here](https://missing.csail.mit.edu/2020/data-wrangling/) now
+
+## Machine Learning Toolchain
+
+### Install Tensorflow GPU
+For `tensorflow 2.3+`, NVIDIA driver `450.x` and CUDA `11.0`
+* Make sure the NVIDIA drivers and CUDA are already installed
+* Create a `conda` environment
+* `conda install -c anaconda cudatoolkit=11.0`
+* Follow instructions [here](https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#package-manager-ubuntu-install) for CUDNN installation. Check [here](https://askubuntu.com/a/1050824) for errors with package keys.
+* `pip install tensorflow`
+* Verify as mentioned [here](https://www.tensorflow.org/guide/gpu#setup)
+More details [here on Tensorflow Install](https://www.tensorflow.org/install/gpu#linux_setup)
