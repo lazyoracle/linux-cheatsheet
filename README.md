@@ -262,6 +262,10 @@ git checkout existingbranch
 git branch newbranch      # Create a new branch, saving the desired commits
 git reset --hard HEAD~3   # Move master back by 3 commits or put a commit hash
 git checkout newbranch    # Go to the new branch that still has the desired commits
+
+# alias for pretty log
+git config --global alias.graphlinelog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git graphlinelog
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
