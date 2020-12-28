@@ -125,7 +125,7 @@ More details on [rsync cheatsheet](https://www.danielms.site/blog/rsync-cheatshe
 ### Essential Installs
 
 ```bash
-sudo apt install -y fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano rsync htop tree screen libatlas-base-dev libboost-all-dev libopenblas-dev
+sudo apt install -y fish wget bzip2 curl git gcc g++ python3-dev build-essential vim nano rsync htop tree screen libatlas-base-dev libboost-all-dev libopenblas-dev software-properties-common
 ```
 
 ### Increasing swap 
