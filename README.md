@@ -222,6 +222,12 @@ git push --set-upstream origin cool-feature
 # change remote for your local repo, useful when synching your fork
 git remote set-url origin <repo url>
 
+# set a new remote and use it to push/fetch 
+git remote add <remote-name> <remote-url>
+git pull <remote-name>
+# for the first push
+git push --set-upstream <remote-name> <branch-name> 
+
 # https://www.atlassian.com/git/tutorials/undoing-changes
 # https://stackoverflow.com/a/24569160
 
