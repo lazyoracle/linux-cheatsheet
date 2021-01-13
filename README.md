@@ -117,6 +117,12 @@ rsync -avzPn ~/local/directory username@remote_host:/home/username/destination_d
 
 # using ssh key
 rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/
+
+# with xargs for parallel execution - https://stackoverflow.com/a/25532027
+# This will list all folders in ~/data, pipe them to xargs, 
+# which will read them one-by-one and and run 4 rsync processes at a time. 
+# The % char replaces the input argument for each command call.
+ls ~/data | xargs -n1 -P4 -I% rsync -Pa % myserver.com:~/data
 ```
 
 More details on [rsync cheatsheet](https://www.danielms.site/blog/rsync-cheatsheet/)
