@@ -7,6 +7,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [Count number of items in directory](#count-number-of-items-in-directory)
   - [Monitor GPU usage](#monitor-gpu-usage)
   - [File Permissions](#file-permissions)
+  - [Symbolic Links](#symbolic-links)
   - [fish](#fish)
   - [wget](#wget)
 - [Networking](#networking)
@@ -64,6 +65,20 @@ sudo chmod XXX <filepath>
 # ssh public key file 644 
 # ssh private key file 600
 # ssh directory 700
+```
+
+### Symbolic Links
+
+```bash
+# ln -s <path-to-target> <path-to-link>
+$ ln -s ~/Documents ./docs  
+$ ls -alh
+total 8.0K
+drwxrwxr-x  2 anurag anurag 4.0K Mar 26 00:34 ./
+drwxrwxr-x 24 anurag anurag 4.0K Mar 26 00:33 ../
+lrwxrwxrwx  1 anurag anurag   23 Mar 26 00:34 docs -> /home/anurag/Documents/
+$ python docs/hello.py
+Hello!
 ```
 
 ### fish
