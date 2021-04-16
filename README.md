@@ -5,6 +5,8 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Shell 101](#shell-101)
   - [List directory contents with size](#list-directory-contents-with-size)
   - [Count number of items in directory](#count-number-of-items-in-directory)
+  - [Find all files larger than a given size](#find-all-files-larger-than-a-given-size)
+  - [Run command on every file](#run-command-on-every-file)
   - [Monitor GPU usage](#monitor-gpu-usage)
   - [File Permissions](#file-permissions)
   - [Symbolic Links](#symbolic-links)
@@ -24,6 +26,8 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Data Wrangling](#data-wrangling)
   - [grep](#grep)
   - [awk and sed](#awk-and-sed)
+  	- [awk to print all columns from nth to last](#awk-to-print-all-columns-from-nth-to-last)
+  	- [sed for removing and adding characters](#sed-for-removing-and-adding-characters)
 - [Machine Learning Toolchain](#machine-learning-toolchain)
   - [Install Tensorflow GPU](#install-tensorflow-gpu)
 ## Shell 101
@@ -38,6 +42,21 @@ du -sch * .[!.]* | sort -rh
 
 ```bash
 ls <directory path> -1 | wc -l
+```
+
+### Find all files larger than a given size
+
+```bash
+# find all files "-type f" in the current directory "."
+# of size greater than 20MB and list the files using "ls -lh"
+# print the file size "$5" and the whole file name "$0,2"
+find . -type f -size +20000k -exec ls -lh {} \; | awk '{print $5 ":"; $1=$2=$3=$4=$5=$6=$7=$8=""; print substr($0,2)}' | sed -r 's .{9}  '
+```
+
+### Run command on every file
+
+```bash
+for i in ./*txt; do echo "File $i"; done
 ```
 
 ### Monitor GPU usage
@@ -132,6 +151,11 @@ rsync -avzPn ~/local/directory username@remote_host:/home/username/destination_d
 
 # using ssh key
 rsync -avzPn -e "ssh -i ~/ec2_keyfile.pem" user@remote:/home/folder /tmp/local_system/
+
+# read file names from a list stored in another file - https://serverfault.com/a/212441
+# works better when source directory is set to root "/" and file names are stored with absolute path
+# source directory gets appended to the file paths inside the listfile
+rsync -avzP /source/directory --files-from=/full/path/to/listfile /destination/directory
 
 # with xargs for parallel execution - https://stackoverflow.com/a/25532027
 # This will list all folders in ~/data, pipe them to xargs, 
@@ -322,7 +346,37 @@ More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
 
 ### awk and sed
 
-TODO: Refer [here](https://missing.csail.mit.edu/2020/data-wrangling/) now
+#### awk to print all columns from nth to last
+
+```bash
+# print 5th column, set columns 1 to 8 as empty, then print all columns
+# https://stackoverflow.com/a/2961994
+<command output with list of formatted strings> | awk '{print $5 ":"; $1=$2=$3=$4=$5=$6=$7=$8=""; print substr($0,2)}'
+```
+
+#### sed for removing and adding characters
+
+```bash
+# add in the beginning of every line in file - https://stackoverflow.com/q/2099471
+sed -i -e 's/^/\/home\/users\/anurag\//' file
+
+# remove last character of every line in file
+sed -i 's/.$//' file
+
+# add :8080 at the end of every line in portsfile
+sed -i 's/$/:8080/' portsfile
+
+# REPLACE last character of each line in file with p3
+sed -i 's/.$/p3/' file
+
+# remove last character of every line in file
+sed -i 's/.$//' file
+
+# remove first two characters of every line in file
+sed -r 's .{2}  ' file
+```
+
+For more tips, refer [here](https://missing.csail.mit.edu/2020/data-wrangling/).
 
 ## Machine Learning Toolchain
 
