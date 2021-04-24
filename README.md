@@ -339,8 +339,14 @@ dep%: subdep1 subdep2
 ### grep
 
 ```bash
-# find pattern in files
-grep --include=\*.{py, c, h} --exclude=\*.o --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+# find pattern in files and include NUM lines after and before search result
+grep --include=\*.{py, c, h} \
+	--exclude=\*.o \
+	--exclude-dir={dir1,dir2,*.dst} \
+	-rnw '/path/to/somewhere/' \
+	-e "pattern" \
+	--after-context=NUM \
+	--before-context=NUM
 ```
 More `grep` funda [here](https://www.grymoire.com/Unix/Grep.html)
 
