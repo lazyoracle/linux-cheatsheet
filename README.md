@@ -323,6 +323,16 @@ git shortlog -sne --after="28 Feb 2021" --before="01 Apr 2021" # short list of c
 git shortlog --after="28 Feb 2021" --before="01 Apr 2021" --merges # merge commits, replace shortlog by log for commit messages
 git log --format=%B -n 1 <commit-hash> # show commit message
 git log --merges --first-parent master --pretty=format:"%h %C(blue)%<(15,trunc)%aN %C(white)%<(22)%ar%Creset %C(green)%s" # log of merge commits to master, with commit hash & author name 
+
+# Saving changes without committing 
+# https://stackoverflow.com/q/11269256
+git stash push -m "stash name" # make a new stash
+git stash list # list all available stashes
+git stash show # show diff between stash and current state
+git stash pop # apply stash and remove from stack
+git stash apply # apply and keep stash in stack
+git diff > path-name.patch # save WIP diff as a patch
+git apply --3way some.patch # apply a patch like a stash
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
