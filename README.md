@@ -30,6 +30,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   	- [sed for removing and adding characters](#sed-for-removing-and-adding-characters)
 - [Machine Learning Toolchain](#machine-learning-toolchain)
   - [Install Tensorflow GPU](#install-tensorflow-gpu)
+  - [Disable Tensorflow debug messages](#disable-tensorflow-debug-messages)
 ## Shell 101
 
 ### List directory contents with size
@@ -411,3 +412,11 @@ For `tensorflow 2.3+`, NVIDIA driver `450.x` and CUDA `11.0`
 * `pip install tensorflow`
 * Verify as mentioned [here](https://www.tensorflow.org/guide/gpu#setup)
 More details [here on Tensorflow Install](https://www.tensorflow.org/install/gpu#linux_setup)
+
+### Disable Tensorflow debug messages
+
+Add the following **before** importing `tensorflow`
+```python
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+```
