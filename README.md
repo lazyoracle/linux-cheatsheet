@@ -10,6 +10,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
   - [Monitor GPU usage](#monitor-gpu-usage)
   - [File Permissions](#file-permissions)
   - [Symbolic Links](#symbolic-links)
+  - [Process Management](#process-management)
   - [fish](#fish)
   - [wget](#wget)
 - [Networking](#networking)
@@ -99,6 +100,13 @@ drwxrwxr-x 24 anurag anurag 4.0K Mar 26 00:33 ../
 lrwxrwxrwx  1 anurag anurag   23 Mar 26 00:34 docs -> /home/anurag/Documents/
 $ python docs/hello.py
 Hello!
+```
+
+### Process Management
+
+```bash
+# Kill all processes with process name matching <pattern>
+ps -ef | grep 'pattern' | grep -v grep | awk '{print $2}' | xargs -r kill -9
 ```
 
 ### fish
