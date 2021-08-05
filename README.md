@@ -32,6 +32,8 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
 - [Machine Learning Toolchain](#machine-learning-toolchain)
   - [Install Tensorflow GPU](#install-tensorflow-gpu)
   - [Disable Tensorflow debug messages](#disable-tensorflow-debug-messages)
+- [Rust Toolchain](#rust-toolchain)
+
 ## Shell 101
 
 ### List directory contents with size
@@ -427,4 +429,27 @@ Add the following **before** importing `tensorflow`
 ```python
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+```
+
+## Rust Toolchain
+
+### Adding Rust to Fish
+```bash
+# https://github.com/rust-lang/rustup/issues/478#issuecomment-330467741
+export PATH="$HOME/.cargo/bin:$PATH" # add to ~/.config/fish/config.fish
+```
+
+### Adding Rust to VS Code
+Add to `settings.json` as discussed [here](https://stackoverflow.com/a/66001600)
+
+```json
+{
+    "rust-client.rustupPath": "~/.cargo/bin/rustup"
+}
+```
+
+### Tab Completion
+```bash
+$ mkdir -p ~/.config/fish/completions
+$ rustup completions fish > ~/.config/fish/completions/rustup.fish
 ```
