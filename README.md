@@ -14,6 +14,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
     - [Process Management](#process-management)
     - [fish](#fish)
     - [wget](#wget)
+    - [Save current command to clipboard](#save-current-command-to-clipboard)
   - [Networking](#networking)
     - [Port Monitoring](#port-monitoring)
     - [SSH 101](#ssh-101)
@@ -133,6 +134,11 @@ wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
 
 * Nifty recipes for common commands - [tldr.sh](https://tldr.sh/)
 * Some basic shell usage [examples](https://missing.csail.mit.edu/2020/shell-tools/)
+
+### Save current command to clipboard
+
+In `zsh`: <kbd>Ctrl</kbd> + <kbd>U</kbd> will cut the whole line (irrespective of your position). In `bash` and `fish`, it will cut backwards from your current position. <kbd>Ctrl</kbd> + <kbd>Y</kbd> will paste it back to the terminal. 
+
 
 ## Networking
 
