@@ -15,6 +15,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
     - [fish](#fish)
     - [wget](#wget)
     - [Save current command to clipboard](#save-current-command-to-clipboard)
+    - [entr](#entr)
   - [Networking](#networking)
     - [Port Monitoring](#port-monitoring)
     - [SSH 101](#ssh-101)
@@ -139,6 +140,15 @@ wget -r -np -R "index.html" -nH -e robots=off --cut-dirs=X <download_URL>
 
 In `zsh`: <kbd>Ctrl</kbd> + <kbd>U</kbd> will cut the whole line (irrespective of your position). In `bash` and `fish`, it will cut backwards from your current position. <kbd>Ctrl</kbd> + <kbd>Y</kbd> will paste it back to the terminal. 
 
+### entr
+
+Useful for watching file changes and running commands on files, e.g, 
+
+```bash
+ls *.md | entr -c glow todo.md
+```
+
+will display the `todo.md` document in the terminal with `glow` and refresh every time the file is changed on disk.
 
 ## Networking
 
