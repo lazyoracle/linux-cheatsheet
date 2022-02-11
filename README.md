@@ -364,6 +364,12 @@ git stash pop # apply stash and remove from stack
 git stash apply # apply and keep stash in stack
 git diff > path-name.patch # save WIP diff as a patch
 git apply --3way some.patch # apply a patch like a stash
+
+# worktree: Create a parellel directory to work on a separate feature
+# https://opensource.com/article/21/4/git-worktree
+git worktree add -b hotfix ~/code/hotfix master
+git worktree list
+git worktree remove hotfix
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
