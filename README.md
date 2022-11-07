@@ -39,6 +39,7 @@ Handy list of oft-used Linux commands that I will never remember. Not intended t
     - [Adding Rust to Fish](#adding-rust-to-fish)
     - [Adding Rust to VS Code](#adding-rust-to-vs-code)
     - [Tab Completion](#tab-completion)
+  - [Youtube Downloader](#youtube-downloader)
 
 ## Shell 101
 
@@ -482,4 +483,12 @@ Add to `settings.json` as discussed [here](https://stackoverflow.com/a/66001600)
 ```bash
 $ mkdir -p ~/.config/fish/completions
 $ rustup completions fish > ~/.config/fish/completions/rustup.fish
+```
+
+## Youtube Downloader
+
+### Download a Playlist
+```bash
+# Download YouTube playlist videos as mp4 in separate directory indexed by video order in a playlist from start-index to end-index
+youtube-dl -f mp4 -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' <playlist-URL> --playlist-start <start-index> --playlist-end <end-index>
 ```
