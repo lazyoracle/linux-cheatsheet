@@ -371,6 +371,12 @@ git apply --3way some.patch # apply a patch like a stash
 git worktree add -b hotfix ~/code/hotfix master
 git worktree list
 git worktree remove hotfix
+
+# Use delta for better git diff outputs
+# https://github.com/dandavison/delta
+brew install git-delta
+git config --global core.pager "delta --line-numbers --dark"
+git config --global delta.side-by-side true
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
