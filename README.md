@@ -377,6 +377,10 @@ git worktree remove hotfix
 brew install git-delta
 git config --global core.pager "delta --line-numbers --dark"
 git config --global delta.side-by-side true
+
+# Find which commit added a specific file eg foo.cpp
+# https://stackoverflow.com/q/11533199
+git log --follow --diff-filter=A --find-renames=40% foo.cpp
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
