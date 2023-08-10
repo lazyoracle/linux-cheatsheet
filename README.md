@@ -381,6 +381,14 @@ git config --global delta.side-by-side true
 # Find which commit added a specific file eg foo.cpp
 # https://stackoverflow.com/q/11533199
 git log --follow --diff-filter=A --find-renames=40% foo.cpp
+
+# Squash all commits in a branch to a single commit without git rebase
+# https://stackoverflow.com/a/25357146
+git checkout my_branch
+git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))
+git add .
+git commit -m "one commit to rule them all
+
 ```
 
 [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
