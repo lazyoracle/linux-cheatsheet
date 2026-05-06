@@ -167,6 +167,10 @@ fuser 8080/tcp (add -k to kill the process too)
 ```bash
 # connect to hostname with key and port forward
 ssh -L <remote_port>:localhost:<local_port> -i /path/to/key username@hostname
+
+# tunnel browser traffic through SSH
+ssh -ND <port> username@server-address
+# Configure proxy in Firefox to use SOCKS v5 Host:localhost and Port:<port>
 ```
 
 ### rsync
